@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../style/list.css">
+    <link rel="stylesheet" href="../css/list.css">
     <title>User List</title>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class = "title">USER LIST</div>
     <div class = "cambioListas">
         <div class="boton">
-            <a href="../lists/Productlist.php"><img src="/media/images/computer.png" alt="order" class="btn"></a>
+            <a href="Productlist.php"><img src="../css/img/images/computer.png" alt="order" class="btn"></a>
         </div>
     </div>
 </header>
@@ -32,7 +32,9 @@
 
 <?php
 $connection = "";
-include "../connection/connection.php";
+include "../model/connection/connection.php";
+
+$isAvailable="";
 
 $result= mysqli_query($connection,"SELECT * FROM users") or die(mysqli_error());
 

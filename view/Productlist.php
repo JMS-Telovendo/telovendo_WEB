@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../style/list.css">
+    <link rel="stylesheet" href="../css/list.css">
     <title>User List</title>
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div class = "title">PRODUCT LIST</div>
     <div class = "cambioListas">
         <div class="boton">
-            <a href="../lists/Userlist.php"><img src="/media/images/user.png" alt="order" class="btn"></a>
+            <a href="Userlist.php"><img src="../css/img/images/user.png" alt="order" class="btn"></a>
         </div>
     </div>
 </header>
@@ -37,12 +37,26 @@
 </div>
 
 <?php
+
+
+
 $connection = "";
-include "../connection/connection.php";
+include "../model/connection/connection.php";
+
+$isAvailable = "";
 
 $result= mysqli_query($connection,"SELECT * FROM products") or die(mysqli_error());
 
 while($field = mysqli_fetch_array( $result )){
+
+    if($field['available'] == 1){
+        $field['available'] = "in Stock";
+
+
+    } else{
+        $field['available'] = "Sold out";
+
+    }
 
     echo '<div class = "registers">
                 <div class="field">       
@@ -65,4 +79,6 @@ while($field = mysqli_fetch_array( $result )){
                  </div>
             </div>';
 }
+
+
 ?>
