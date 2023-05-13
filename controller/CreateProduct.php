@@ -33,8 +33,23 @@ function renderForm($product, $category, $price, $user_id, $available, $error)
         </div>
 
         <div class="field">
-            <label class="label" >User_id</label>
-            <input class="inp" type="number" name="userid" value=""
+            <label class="label" >User</label>
+            <select class="inp" name="userid" id="user_id">
+                <?php
+                $connection = mysqli_connect("localhost", "root", "", "telovendo");
+
+                $sql = "SELECT id, name FROM users";
+                $resultado = mysqli_query($connection, $sql);
+
+                // Rellenar el selector con los resultados
+                echo "<option value=''</option>";
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+
+                    echo "<option value='" . $fila['id'] . "'>" . $fila['name'] . "</option>";
+                }
+                ?>
+            </select>
+
         </div>
 
         <div class="check">
@@ -61,7 +76,7 @@ if (isset($_POST['submit'])) {
     $product_name = htmlspecialchars($_POST['product_name']);
     $category = htmlspecialchars($_POST['category']);
     $price = htmlspecialchars($_POST['price']);
-    $user_id = htmlspecialchars($_POST['user_id']);
+    $user_id = htmlspecialchars($_POST['id']);
     $available = htmlspecialchars($_POST['available']);
 
 
@@ -75,6 +90,11 @@ if (isset($_POST['submit'])) {
 
     }
 
+if($_POST['user_id'] == 'value')
+{
+    echo $user_id;
+}
+
     if ($product_name == '' || $category == '' || $price = '') {
         $error = 'ERROR: Please, Introduce the required field!';
 
@@ -82,7 +102,7 @@ if (isset($_POST['submit'])) {
 
     } else {
 
-        $query = "INSERT products SET product_name='$product_name', category = '$category', price = '$price', user_id= '$user_id'
+        $query = "INSERT product SET product_name='$product_name', category = '$category', price = '$price', user_id= '$user_id'
         , available='$available'" or die(mysqli_error());
 
         mysqli_query($connection, $query);
