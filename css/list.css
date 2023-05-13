@@ -1,0 +1,123 @@
+*{
+    margin: auto;
+}
+
+body {
+    background-size: cover;
+    background-color: rgb(252, 237, 236);
+    background-image: linear-gradient(to right, rgb(215, 208, 240), rgb(240, 209, 255));
+}
+
+header{
+    width: 100%;
+//border: 1px solid #000;
+}
+
+nav {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Abel', sans-serif;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.telovendoheader {
+    font-family: 'Abel', sans-serif;
+    background-color: rgb(35, 34, 34);
+    max-width: 100%;
+    text-align: center;
+    padding: 30px;
+}
+
+.title{
+    background-color: #f1f1f1;
+    margin:50px 0 20px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: "Roboto Light";
+}
+
+.column_name{
+    font-family: 'Abel', sans-serif;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(35, 34, 34);
+    color: #f1f1f1;
+    border: none;
+    width: 75%;
+}
+
+.registers{
+    display: flex;
+    flex-direction: row;
+    background-color: #f1f1f1;
+    border: none;
+    width: 75%;
+}
+
+.crud {
+
+    font-family: 'Abel', sans-serif;
+    padding: 10px 5px 10px 5px;
+    border-left: solid 2px #000;
+    text-align: center;
+    width: 100%;
+    background-color: #f1f1f1;
+
+}
+
+.field {
+    font-family: 'Abel', sans-serif;
+    padding: 10px 5px 10px 5px;
+//border-right: solid 1px #000;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+
+}
+
+
+
+
+
+.icon{
+    width: 25px;
+    margin-right: 5px;
+}
+
+.cambioListas {
+    display: flex;
+    text-align: center;
+    margin: 20px auto;
+    width: 20%;
+}
+
+.boton {
+    display: inline;
+    font-family: 'Abel', sans-serif;
+    margin: 10px;
+    font-size: 19px;
+    text-align: center;
+    font-weight: 600;
+}
+
+img.btn {
+    border-radius: 141px;
+    background-color: #f1f1f1;
+    padding: 11px;
+    width: 65px;
+    margin: 0 4px;
+}
+
+.btn:hover {
+    padding:5px;
+    background-color: cyan;
+    border-radius: 10px;
+    transition: ease-in-out all 0.5s;
+}
