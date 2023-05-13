@@ -6,9 +6,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $queryDeleteUser = "DELETE FROM users WHERE id=$id" or die(mysqli_error());
-    $resultDeleteUser = mysqli_query($connection, $queryDeleteUser);
+    $queryDeleteProduct = "DELETE FROM products WHERE id=$id" or die(mysqli_error());
+    $resultDeleteProduct = mysqli_query($connection, $queryDeleteProduct);
 
 
-    header("Location: ../view/Userlist.php");
+    header("Location: ../view/Productlist.php");
 }

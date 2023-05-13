@@ -2,7 +2,7 @@
 $connection = "";
 include "../model/connection/connection.php";
 
-function renderForm($name, $category, $price, $user_id, $available, $error)
+function renderForm($product, $category, $price, $user_id, $available, $error)
 {
     ?>
 <!DOCTYPE html>
@@ -33,13 +33,13 @@ function renderForm($name, $category, $price, $user_id, $available, $error)
         </div>
 
         <div class="field">
-            <label class="label" >*User_id</label>
+            <label class="label" >User_id</label>
             <input class="inp" type="number" name="userid" value=""
         </div>
 
         <div class="check">
-            <label class="label" >Is Available?:</label>
-            <input class="inp" type="checkbox" name="available" value="1">
+            <label class="label" >In Stock?:</label>
+            <input class="inp" type="checkbox" name="available" value="0">
 
         </div>
         <input class = "btn" type="submit" name="submit" value="Register">
@@ -58,7 +58,7 @@ function renderForm($name, $category, $price, $user_id, $available, $error)
 }
 
 if (isset($_POST['submit'])) {
-    $name = htmlspecialchars($_POST['product_name']);
+    $product_name = htmlspecialchars($_POST['product_name']);
     $category = htmlspecialchars($_POST['category']);
     $price = htmlspecialchars($_POST['price']);
     $user_id = htmlspecialchars($_POST['user_id']);
@@ -67,20 +67,24 @@ if (isset($_POST['submit'])) {
 
     if($_POST['available'] == 'value')
     {
-        echo $name . " Available";
+        echo $product_name . " is in Stock";
     }
     else
     {
-        echo $name . " Not Available";
+        echo $product_name . " is not in Stock";
 
     }
 
-    if ($name == '' || $category == '' || $price == '' || $user_id == ''|| $available == '') {
+    if ($product_name == '' || $category == '' || $price = '') {
         $error = 'ERROR: Please, Introduce the required field!';
-        renderForm($name, $category,$price,$user_id, $available, $error);
+
+        renderForm($product_name, $category,$price,$user_id, $available, $error);
+
     } else {
-        $query = "INSERT products SET product_name='$name', category = '$category', price = '$price', user_id= '$user_id'
+
+        $query = "INSERT products SET product_name='$product_name', category = '$category', price = '$price', user_id= '$user_id'
         , available='$available'" or die(mysqli_error());
+
         mysqli_query($connection, $query);
 
 
@@ -88,6 +92,6 @@ if (isset($_POST['submit'])) {
 
     header("Location: ../view/Productlist.php");
     } else {
-        renderForm('', '', '', '',"");
+        renderForm('', '', '', '','','');
     }
 ?>

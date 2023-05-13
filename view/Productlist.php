@@ -10,6 +10,9 @@
     <div class="telovendoheader"><img src="../css/img/telovendo2.png" alt=""></div>
 </header>
 
+
+
+
 <nav>
     <div class = "boton"><a href="Userlist.php">Users</a></div>
     <div class = "boton"><a href="Productlist.php">Products</a></div>
@@ -32,7 +35,7 @@
         <h4>Price</h4>
     </div>
     <div class="field">
-        <h4>Available</h4>
+        <h4>Availability</h4>
     </div>
     <div class="field" style="background-color:rgb(35, 34, 34); color: bisque";>
         <h4>Functions</h4>
@@ -53,11 +56,13 @@ $result= mysqli_query($connection,"SELECT * FROM products") or die(mysqli_error(
 while($field = mysqli_fetch_array( $result )){
 
     if($field['available'] == 1){
-        $field['available'] = "in Stock";
+        $field['available'] = $isAvailable;
+        $isAvailable = $field['product_name']." is in stock";
 
 
     } else{
-        $field['available'] = "Sold out";
+        $field['available'] = $isAvailable;
+        $isAvailable = $field['product_name']." is not in stock";
 
     }
 
@@ -78,7 +83,7 @@ while($field = mysqli_fetch_array( $result )){
                 <p>'. $field['price'] .'</p>
                  </div>
                  <div class="field">
-                <p>'. $field['available'] .'</p>
+                <p>'. $isAvailable .'</p>
                  </div>
                 <div class="crud">
                 <a href="../controller/CreateProduct.php"><img class="icon" src="../css/icons/add.png" alt="Register"></a>
