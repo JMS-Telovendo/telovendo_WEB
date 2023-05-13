@@ -2,6 +2,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/list.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Kaushan+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>User List</title>
 </head>
 <body>
@@ -37,7 +39,7 @@
     <div class="field">
         <h4>Availability</h4>
     </div>
-    <div class="field" style="background-color:rgb(35, 34, 34); color: bisque";>
+    <div class="field" style="background-color:rgb(35, 34, 34); color: #f1f1f1";>
         <h4>Functions</h4>
     </div>
 </div>
@@ -90,7 +92,7 @@ while($field = mysqli_fetch_array( $result )){
                 <p>'. $isAvailable .'</p>
                  </div>
                 <div class="crud">      
-                <a href="../controller/DeleteProduct.php?id=' . $field['id'] . '"><img class="icon" src="../css/icons/delete.png" alt="Delete"></a>
+                <a href="../controller/DeleteProduct.php?id=' . $field['id'] . '"><i class="far fa-trash-alt"></i></a>
                  </div>
             </div>';
 }
