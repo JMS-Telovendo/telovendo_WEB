@@ -29,7 +29,7 @@ function renderForm($product, $category, $price, $user_id, $available, $error)
         </div>
         <div class="field">
             <label class="label" >*Price</label>
-            <input class="inp" type="number" name="price" value=""
+            <input class="inp" type="number" step="any" name="price" value=""
         </div>
 
         <div class="field">

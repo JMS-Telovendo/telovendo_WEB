@@ -66,6 +66,10 @@ while($field = mysqli_fetch_array( $result )){
 
     }
 
+    if($field['user_id'] == ""){
+        $field['user_id'] = "User not assigned";
+    }
+
     echo '<div class = "registers">
                 <div class="field">       
                 <p>'. $field['id'] .'</p>
@@ -85,8 +89,7 @@ while($field = mysqli_fetch_array( $result )){
                  <div class="field">
                 <p>'. $isAvailable .'</p>
                  </div>
-                <div class="crud">
-                <a href="../controller/CreateProduct.php"><img class="icon" src="../css/icons/add.png" alt="Register"></a>
+                <div class="crud">      
                 <a href="../controller/DeleteProduct.php?id=' . $field['id'] . '"><img class="icon" src="../css/icons/delete.png" alt="Delete"></a>
                  </div>
             </div>';

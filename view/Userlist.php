@@ -13,9 +13,8 @@
 <nav>
     <div class = "boton"><a href="Userlist.php">Users</a></div>
     <div class = "boton"><a href="Productlist.php">Products</a></div>
+    <div class = "boton"><a href="../controller/CreateUser.php">Add User</a></div>
 </nav>
-
-
 
 <div class = "column_name">
     <div class="field">
@@ -59,7 +58,6 @@ while($field = mysqli_fetch_array( $result )){
                 <p>'. $field['user'] . '</p>
                  </div>
                    <div class="crud">
-                <a href="../controller/CreateUser.php"><img class="icon" src="../css/icons/add.png" alt="Register"></a>
                 <a href="../controller/DeleteUser.php?id=' . $field['id'] . '"><img class="icon" src="../css/icons/delete.png" alt="Delete"></a>
                  </div>
             </div>';
